@@ -1,88 +1,148 @@
+:root {
+  --primary: #1976d2;
+  --primary-dark: #1565c0;
+  --accent: #42a5f5;
+  --danger: #e53935;
+  --success: #43a047;
+  --bg: #f6f8fa;
+  --card-bg: #fff;
+  --border: #e3e8ee;
+  --shadow: 0 4px 24px rgba(25, 118, 210, 0.07);
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: #f6f8fa;
+  background: var(--bg);
   color: #222;
-  min-height: 100vh;
 }
 
-nav {
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1rem 2rem;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: flex-start;
+/* Realistic Modern Navbar */
+.main-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   z-index: 100;
-  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.07), 0 1.5px 0 0 var(--border);
+  border-bottom: 1.5px solid var(--border);
+  padding: 0 2.5rem;
+  min-height: 72px;
+  height: 72px;
+  transition: box-shadow 0.2s;
 }
 
 .nav-logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #1976d2;
-  margin-right: 2rem;
-  letter-spacing: 1px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 1.5px;
+  margin-right: 2.5rem;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  text-shadow: 0 1px 0 #e3e8ee;
+  user-select: none;
 }
 
-nav a {
-  color: #1976d2;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.13rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 7px;
+  transition: color 0.18s, background 0.18s, box-shadow 0.18s;
   position: relative;
+  letter-spacing: 0.2px;
+  background: transparent;
 }
 
-nav a.active, nav a:focus {
+.nav-links a.active, .nav-links a:focus {
   background: #e3f2fd;
-  color: #0d47a1;
+  color: var(--primary-dark);
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
 }
 
-nav a:hover {
-  color: #0d47a1;
-  background: #e3f2fd;
+.nav-links a:hover {
+  color: #fff;
+  background: var(--primary);
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
 }
 
-.page-container {
-  max-width: 480px;
+.nav-user-block {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.nav-user-info {
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-right: 6px;
+  white-space: nowrap;
+  font-size: 1.08rem;
+}
+
+.logout-btn {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5rem 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.08);
+}
+.logout-btn:hover, .logout-btn:focus {
+  background: #b71c1c;
+  box-shadow: 0 4px 16px rgba(229, 57, 53, 0.13);
+}
+
+.navbar-time {
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+  min-width: 80px;
+  text-align: right;
+  margin-left: 8px;
+}
+
+.page-container, .full-page-container {
+  max-width: 1100px;
   margin: 2.5rem auto;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: var(--shadow);
   padding: 2.5rem 2rem;
-  border: 1.5px solid #e3e8ee;
+  border: 1.5px solid var(--border);
   box-sizing: border-box;
-  overflow-x: auto;
-}
-
-.page-container * {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-.dashboard-cards, .dashboard-card, table, thead, tbody, tr, th, td {
-  max-width: 100%;
-  box-sizing: border-box;
+  margin-top: 90px;
 }
 
 h2 {
   margin-top: 0;
-  color: #1976d2;
+  color: var(--primary);
   font-size: 2rem;
   letter-spacing: 0.5px;
 }
 
 button {
-  background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+  background: linear-gradient(90deg, var(--primary) 60%, var(--accent) 100%);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -96,29 +156,29 @@ button {
 }
 
 button:hover, button:focus {
-  background: linear-gradient(90deg, #1565c0 60%, #1976d2 100%);
+  background: linear-gradient(90deg, var(--primary-dark) 60%, var(--primary) 100%);
   box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="time"], textarea, select {
   width: 100%;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #bdbdbd;
-  border-radius: 6px;
-  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 7px;
+  font-size: 1.08rem;
   margin-top: 0.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  background: #f6f8fa;
+  color: #222;
   transition: border 0.2s, box-shadow 0.2s;
-  background: #f9f9f9;
+  box-sizing: border-box;
 }
-
-input:focus {
-  border: 1.5px solid #1976d2;
+input:focus, textarea:focus, select:focus {
+  border: 1.5px solid var(--primary);
   outline: none;
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
 }
 
-/* Card styles for dashboard */
 .dashboard-cards {
   display: flex;
   gap: 2rem;
@@ -147,139 +207,6 @@ input:focus {
   margin-bottom: 0.3rem;
 }
 
-/* Table styles for history */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-  font-size: 1rem;
-}
-thead tr {
-  background: #f1f1f1;
-}
-th, td {
-  padding: 0.7rem 0.5rem;
-  border: 1px solid #eee;
-  text-align: left;
-}
-tbody tr:nth-child(even) {
-  background: #fafafa;
-}
-tbody tr:hover {
-  background: #e3f2fd44;
-}
-
-.full-page-container {
-  width: 100vw;
-  min-height: calc(100vh - 96px);
-  margin-top: 96px;
-  background: #fff;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 2.5rem 3vw 2.5rem 3vw;
-  box-sizing: border-box;
-}
-
-.attendance-entry-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1976d2;
-  margin-bottom: 2rem;
-  letter-spacing: 0.5px;
-  text-align: center;
-}
-
-.attendance-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgb(247, 249, 250);
-  border: 2px solid #90caf9;
-  padding: 2.5rem 3rem 2rem 3rem;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.attendance-form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #1976d2, #42a5f5, #1976d2);
-}
-
-.attendance-form-row {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  align-items: flex-end;
-}
-
-.attendance-form label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  display: block;
-  color: #1565c0;
-  font-size: 1.1rem;
-}
-
-.attendance-form input[type="text"],
-.attendance-form input[type="time"] {
-  width: 100%;
-  padding: 0.8rem 1.2rem;
-  border: 2px solid #bdbdbd;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  margin-top: 0.3rem;
-  margin-bottom: 0.5rem;
-  background: #fff;
-  color: #222;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.attendance-form input:focus {
-  border: 2px solid #1976d2;
-  outline: none;
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.15);
-  transform: translateY(-1px);
-}
-
-.attendance-form button[type="submit"] {
-  min-width: 160px;
-  height: 52px;
-  align-self: flex-end;
-  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.952);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 1rem;
-}
-
-.attendance-form button[type="submit"]:hover,
-.attendance-form button[type="submit"]:focus {
-  background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
-  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.3);
-  transform: translateY(-2px);
-}
-
 .attendance-table {
   width: 100%;
   font-size: 1rem;
@@ -288,11 +215,11 @@ tbody tr:hover {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.04);
-  border: 1px solid #e3e8ee;
+  border: 1px solid var(--border);
 }
 .attendance-table th, .attendance-table td {
   padding: 0.8rem 0.5rem;
-  border: 1px solid #e3e8ee;
+  border: 1px solid var(--border);
   text-align: left;
 }
 .attendance-table thead tr {
@@ -305,41 +232,48 @@ tbody tr:hover {
   background: #e3f2fd44;
 }
 
-@media (max-width: 900px) {
-  .attendance-form {
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    max-width: 95vw;
-    margin: 0 1rem 2rem 1rem;
-  }
-  .attendance-form-row {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .attendance-form button[type="submit"] {
-    align-self: center;
-    width: 100%;
-    max-width: 200px;
-  }
+/* Ensure main content is not hidden behind navbar */
+.page-container, .full-page-container {
+  margin-top: 90px;
 }
 
-@media (max-width: 700px) {
-  .page-container {
-    padding: 1.2rem 0.5rem;
-    max-width: 98vw;
-    margin-top: 80px;
-  }
-  nav {
+/* Responsive nav bar improvements */
+@media (max-width: 900px) {
+  .main-nav {
     flex-direction: column;
-    gap: 0.7rem;
-    padding: 1rem 0.5rem;
-    min-height: 56px;
+    align-items: stretch;
+    height: auto;
+    padding: 0.5rem 0.5rem;
+    min-height: 80px;
+  }
+  .nav-logo {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    text-align: left;
+    font-size: 1.3rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .nav-user-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+  }
+  .navbar-time {
+    margin-left: 0;
+    min-width: 0;
+  }
+  .page-container, .full-page-container {
+    margin-top: 80px;
   }
   .dashboard-cards {
     flex-direction: column;
     gap: 1rem;
-  }
-  .full-page-container {
-    padding: 1.2rem 2vw 1.2rem 2vw;
-    margin-top: 80px;
   }
 }
